@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using System;
+using UnityEngine.Networking;
 
 public class DeleteController : MonoBehaviour
 {
@@ -10,32 +10,31 @@ public class DeleteController : MonoBehaviour
     public void TryDeleteData()
     {
         string str = _inputField.text;
-        if (ValidateInputField(str))
+
+        int id;
+        if (!TextValidator.StringIsNotNullOrEmpty(str) && TextValidator.StringIsNumber(str, out id) && id > 0)
         {
-            DeleteData(Int32.Parse(_inputField.text));
+            DeleteData(id);
         }
     }
 
     private void DeleteData(int id)
     {
         string url = UrlAPI.API + "/" + id;
-        StartCoroutine(_restAPI.Delete(url));
+        StartCoroutine(_restAPI.Delete(url, RequestHandler));
     }
 
-    private bool ValidateInputField(string str)
+
+
+    private void RequestHandler(UnityWebRequest request)
     {
-        if (String.IsNullOrEmpty(str))
-            return false;
-
-        int id;
-        bool isNumber = int.TryParse(str, out id); 
-        
-        if (!isNumber)
-            return false;
-
-        if (id <= 0)
-            return false;
-
-        return true;
+        if (request.result == UnityWebRequest.Result.ConnectionError)
+        {
+            Debug.LogError(request.error);
+        }
+        else
+        {
+            Debug.LogError(request.responseCode);
+        }
     }
 }

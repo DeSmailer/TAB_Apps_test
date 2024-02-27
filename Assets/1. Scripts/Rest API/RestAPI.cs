@@ -37,17 +37,6 @@ public class RestAPI : MonoBehaviour
             yield return request.SendWebRequest();
 
             requestHandler?.Invoke(request);
-
-            //if (request.result == UnityWebRequest.Result.ConnectionError)
-            //{
-            //    Debug.LogError(request.error);
-            //}
-            //else
-            //{
-            //    string json = "{\"usersData\":" + request.downloadHandler.text + "}";
-            //    UsersData usersData = JsonUtility.FromJson<UsersData>(json);
-            //    DebugPrint(usersData);
-            //}
         }
     }
 
@@ -58,16 +47,6 @@ public class RestAPI : MonoBehaviour
             yield return request.SendWebRequest();
 
             requestHandler?.Invoke(request);
-            //if (request.result == UnityWebRequest.Result.ConnectionError)
-            //{
-            //    Debug.LogError(request.error);
-            //}
-            //else
-            //{
-            //    string json = request.downloadHandler.text;
-            //    UserData userData = JsonUtility.FromJson<UserData>(json);
-            //    DebugPrint(userData);
-            //}
         }
     }
 
@@ -86,7 +65,7 @@ public class RestAPI : MonoBehaviour
         yield return request.SendWebRequest();
 
         UserData userDataFromServer = JsonUtility.FromJson<UserData>(request.downloadHandler.text);
-        DebugPrint(userDataFromServer);
+        //DebugPrint(userDataFromServer);
     }
 
 
@@ -100,32 +79,16 @@ public class RestAPI : MonoBehaviour
         yield return request.SendWebRequest();
 
         UserData userDataFromServer = JsonUtility.FromJson<UserData>(request.downloadHandler.text);
-        DebugPrint(userDataFromServer);
+        //DebugPrint(userDataFromServer);
     }
 
-    public IEnumerator Delete(string url)
+    public IEnumerator Delete(string url, Action<UnityWebRequest> requestHandler)
     {
         UnityWebRequest request = UnityWebRequest.Delete(url);
 
         yield return request.SendWebRequest();
 
-        Debug.LogError(request.responseCode);
-    }
-
-    public void DebugPrint(UserData userData)
-    {
-        Debug.Log("id: " + userData.id +
-            ", name: " + userData.name +
-            ", surname: " + userData.surname +
-            ", age: " + userData.age);
-
-    }
-    public void DebugPrint(UsersData usersData)
-    {
-        foreach (var userData in usersData.usersData)
-        {
-            DebugPrint(userData);
-        }
+        requestHandler?.Invoke(request);
     }
 }
 
