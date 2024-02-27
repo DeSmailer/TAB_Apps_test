@@ -24,8 +24,6 @@ public class DeleteController : MonoBehaviour
         StartCoroutine(_restAPI.Delete(url, RequestHandler));
     }
 
-
-
     private void RequestHandler(UnityWebRequest request)
     {
         if (request.result == UnityWebRequest.Result.ConnectionError)

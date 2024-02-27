@@ -5,18 +5,6 @@ using UnityEngine.Networking;
 
 public class RestAPI : MonoBehaviour
 {
-    public void PostData()
-    {
-        UserData userData = new UserData()
-        {
-            id = -1,
-            name = "sdfsd",
-            surname = "sdfsdf",
-            age = 123
-        };
-
-        StartCoroutine(Post(UrlAPI.API, userData));
-    }
 
     //public void PutData()
     //{
@@ -31,7 +19,7 @@ public class RestAPI : MonoBehaviour
     //    StartCoroutine(Put(url, userData));
     //}
 
-    public IEnumerator GetAll(string url, Action<UnityWebRequest> requestHandler)
+    public IEnumerator GetAll(string url, Action<UnityWebRequest> requestHandler = null)
     {
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
@@ -41,7 +29,7 @@ public class RestAPI : MonoBehaviour
         }
     }
 
-    public IEnumerator GetUser(string url, Action<UnityWebRequest> requestHandler)
+    public IEnumerator GetUser(string url, Action<UnityWebRequest> requestHandler = null)
     {
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
@@ -51,7 +39,7 @@ public class RestAPI : MonoBehaviour
         }
     }
 
-    public IEnumerator Post(string url, UserData userData)
+    public IEnumerator Post(string url, UserData userData, Action<UnityWebRequest> requestHandler = null)
     {
         WWWForm form = new WWWForm();
 
@@ -62,11 +50,12 @@ public class RestAPI : MonoBehaviour
         byte[] userBytes = System.Text.Encoding.UTF8.GetBytes(json);
         UploadHandler uploadHandler = new UploadHandlerRaw(userBytes);
         request.uploadHandler = uploadHandler;
+
         request.SetRequestHeader(RequestHeaders.ContentType, RequestHeaders.ApplicationJson);
+
         yield return request.SendWebRequest();
 
-        UserData userDataFromServer = JsonUtility.FromJson<UserData>(request.downloadHandler.text);
-        //DebugPrint(userDataFromServer);
+        requestHandler?.Invoke(request);
     }
 
 
@@ -83,7 +72,7 @@ public class RestAPI : MonoBehaviour
         //DebugPrint(userDataFromServer);
     }
 
-    public IEnumerator Delete(string url, Action<UnityWebRequest> requestHandler)
+    public IEnumerator Delete(string url, Action<UnityWebRequest> requestHandler = null)
     {
         UnityWebRequest request = UnityWebRequest.Delete(url);
 
