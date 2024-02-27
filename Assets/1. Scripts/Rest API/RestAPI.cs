@@ -5,17 +5,18 @@ using UnityEngine.Networking;
 
 public class RestAPI : MonoBehaviour
 {
-    //public void PostData()
-    //{
-    //    UserData userData = new UserData()
-    //    {
-    //        name = "sdfsd",
-    //        surname = "sdfsdf",
-    //        age = 123
-    //    };
+    public void PostData()
+    {
+        UserData userData = new UserData()
+        {
+            id = -1,
+            name = "sdfsd",
+            surname = "sdfsdf",
+            age = 123
+        };
 
-    //    StartCoroutine(Post(UrlAPI.API, userData));
-    //}
+        StartCoroutine(Post(UrlAPI.API, userData));
+    }
 
     //public void PutData()
     //{
