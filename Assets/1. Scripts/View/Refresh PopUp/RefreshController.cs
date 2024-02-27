@@ -29,24 +29,21 @@ public class RefreshController : MonoBehaviour
         }
     }
 
+    private void GetUser(int id)
+    {
+        string url = UrlAPI.API;
+        if (id != -1)
+        {
+            url += "/" + id;
+            StartCoroutine(_restAPI.GetUser(url, PrintUserInfo));
+        }
+    }
+
     private void GetAllUsers()
     {
         StartCoroutine(_restAPI.GetAll(UrlAPI.API, PrintUsersInfo));
     }
 
-    private void PrintUserInfo(UnityWebRequest request)
-    {
-        if (request.result == UnityWebRequest.Result.ConnectionError)
-        {
-            Debug.LogError(request.error);
-        }
-        else
-        {
-            string json = request.downloadHandler.text;
-            UserData userData = JsonUtility.FromJson<UserData>(json);
-            AddElementToContainer(userData);
-        }
-    }
     private void PrintUsersInfo(UnityWebRequest request)
     {
 
@@ -65,19 +62,24 @@ public class RefreshController : MonoBehaviour
         }
     }
 
+
+    private void PrintUserInfo(UnityWebRequest request)
+    {
+        if (request.result == UnityWebRequest.Result.ConnectionError)
+        {
+            Debug.LogError(request.error);
+        }
+        else
+        {
+            string json = request.downloadHandler.text;
+            UserData userData = JsonUtility.FromJson<UserData>(json);
+            AddElementToContainer(userData);
+        }
+    }
+   
     private void AddElementToContainer(UserData userData)
     {
         InfoButton infoButton = Instantiate(_infoButtonPrefab, _container);
         infoButton.userData = userData;
-    }
-
-    private void GetUser(int id)
-    {
-        string url = UrlAPI.API;
-        if (id != -1)
-        {
-            url += "/" + id;
-            StartCoroutine(_restAPI.GetUser(url, PrintUserInfo));
-        }
     }
 }
