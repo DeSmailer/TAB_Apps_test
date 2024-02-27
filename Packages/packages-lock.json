@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.e7.notch-solution": {
+      "version": "https://github.com/5argon/NotchSolution.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "a7f8f5a2f739f054f60ad13b80b692fb5c54f5b0"
+    },
     "com.unity.2d.animation": {
       "version": "9.0.4",
       "depth": 1,
