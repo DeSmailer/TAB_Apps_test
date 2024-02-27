@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055dcd235425fdd4086e16475cc5a439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userData:
+  _userData:
     id: 0
     name: 
     surname: 
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 1297997005202445092}
   _infoButton: {fileID: 2087320333580128202}
+  _button: {fileID: 1562664834588826004}
 --- !u!1 &5765045004645748007
 GameObject:
   m_ObjectHideFlags: 0

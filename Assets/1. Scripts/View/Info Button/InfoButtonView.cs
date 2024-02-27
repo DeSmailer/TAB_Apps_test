@@ -1,12 +1,26 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using System;
 
 public class InfoButtonView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _text;
     [SerializeField] private InfoButton _infoButton;
-    void Update()
+    [SerializeField] private Button _button;
+    [SerializeField] private InfoPopUp _infoPopUp;
+
+    private void OpenInfoPopUp()
     {
-        _text.text = _infoButton.userData.id.ToString();
+
+        _infoPopUp.Display(_infoButton);
+    }
+
+    public void Initialize(InfoPopUp infoPopUp)
+    {
+        _text.text = _infoButton.UserData.id.ToString();
+
+        _infoPopUp = infoPopUp;
+        _button.onClick.AddListener(OpenInfoPopUp);
     }
 }

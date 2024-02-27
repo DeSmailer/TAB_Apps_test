@@ -7,6 +7,7 @@ public class RefreshController : MonoBehaviour
     [SerializeField] private InfoButton _infoButtonPrefab;
     [SerializeField] private Transform _container;
     [SerializeField] private TMP_InputField _inputField;
+    [SerializeField] private InfoPopUp _infoPopUp ;
     [SerializeField] private RestAPI _restAPI;
 
     public void TryRefreshData()
@@ -62,7 +63,6 @@ public class RefreshController : MonoBehaviour
         }
     }
 
-
     private void PrintUserInfo(UnityWebRequest request)
     {
         if (request.result == UnityWebRequest.Result.ConnectionError)
@@ -76,10 +76,12 @@ public class RefreshController : MonoBehaviour
             AddElementToContainer(userData);
         }
     }
-   
+
     private void AddElementToContainer(UserData userData)
     {
         InfoButton infoButton = Instantiate(_infoButtonPrefab, _container);
-        infoButton.userData = userData;
+        infoButton.Initialize(userData);
+
+        infoButton.gameObject.GetComponent<InfoButtonView>().Initialize(_infoPopUp);
     }
 }

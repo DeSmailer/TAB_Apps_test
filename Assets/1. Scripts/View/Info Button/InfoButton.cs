@@ -1,8 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InfoButton : MonoBehaviour
 {
-    public UserData userData;
+    [SerializeField] private UserData _userData;
+
+    public UserData UserData => _userData;
+
+    public void Initialize(UserData userData)
+    {
+        _userData = userData;
+    }
 }
