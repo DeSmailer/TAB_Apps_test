@@ -17,13 +17,13 @@ public class RefreshController : MonoBehaviour
         }
 
         string str = _inputField.text;
-        if (TextValidator.StringIsNotNullOrEmpty(str))
+        if (!TextValidator.StringIsNotNullOrEmpty(str))
         {
             GetAllUsers();
         }
 
         int id;
-        if (!TextValidator.StringIsNotNullOrEmpty(str) && TextValidator.StringIsNumber(str, out id) && id > 0)
+        if (TextValidator.StringIsNotNullOrEmpty(str) && TextValidator.StringIsNumber(str, out id) && id > 0)
         {
             GetUser(id);
         }

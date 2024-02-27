@@ -12,7 +12,7 @@ public class DeleteController : MonoBehaviour
         string str = _inputField.text;
 
         int id;
-        if (!TextValidator.StringIsNotNullOrEmpty(str) && TextValidator.StringIsNumber(str, out id) && id > 0)
+        if (TextValidator.StringIsNotNullOrEmpty(str) && TextValidator.StringIsNumber(str, out id) && id > 0)
         {
             DeleteData(id);
         }

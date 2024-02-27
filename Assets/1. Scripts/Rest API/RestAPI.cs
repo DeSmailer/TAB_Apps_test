@@ -6,19 +6,6 @@ using UnityEngine.Networking;
 public class RestAPI : MonoBehaviour
 {
 
-    //public void PutData()
-    //{
-    //    UserData userData = new UserData()
-    //    {
-    //        id = 1,
-    //        name = "1",
-    //        surname = "1",
-    //        age = 1
-    //    };
-    //    string url = UrlAPI.API + "/" + userData.id;
-    //    StartCoroutine(Put(url, userData));
-    //}
-
     public IEnumerator GetAll(string url, Action<UnityWebRequest> requestHandler = null)
     {
         using (UnityWebRequest request = UnityWebRequest.Get(url))
@@ -53,7 +40,7 @@ public class RestAPI : MonoBehaviour
     }
 
 
-    public IEnumerator Put(string url, UserData userData)
+    public IEnumerator Put(string url, UserData userData, Action<UnityWebRequest> requestHandler = null)
     {
         string json = JsonUtility.ToJson(userData);
 
@@ -61,9 +48,9 @@ public class RestAPI : MonoBehaviour
 
         request.SetRequestHeader(RequestHeaders.ContentType, RequestHeaders.ApplicationJson);
         yield return request.SendWebRequest();
+        requestHandler?.Invoke(request);
 
-        UserData userDataFromServer = JsonUtility.FromJson<UserData>(request.downloadHandler.text);
-        //DebugPrint(userDataFromServer);
+
     }
 
     public IEnumerator Delete(string url, Action<UnityWebRequest> requestHandler = null)

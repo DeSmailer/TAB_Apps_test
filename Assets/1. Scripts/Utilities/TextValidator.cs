@@ -5,8 +5,8 @@ public static class TextValidator
     public static bool StringIsNotNullOrEmpty(string str)
     {
         if (String.IsNullOrEmpty(str))
-            return true;
-        return false;
+            return false;
+        return true;
     }
 
     public static bool StringIsNumber(string str, out int number)
