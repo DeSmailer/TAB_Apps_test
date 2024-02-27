@@ -7,17 +7,7 @@ public class CreateController : MonoBehaviour
 
     public void CreateData()
     {
-        //якщо вказуємо такі дані, а саме id, то в базі створюється запис автоматично
-        //якщо не впишемо такий id, то до бази додається запис с тими даними що ми передамо
-        UserData userData = new UserData()
-        {
-            id = -1,
-            name = "test -1",
-            surname = "test -1",
-            age = -1
-        };
-
-        StartCoroutine(_restAPI.Post(UrlAPI.API, userData, RequestHandler));
+        StartCoroutine(_restAPI.Post(UrlAPI.API, RequestHandler));
     }
 
     private void RequestHandler(UnityWebRequest request)

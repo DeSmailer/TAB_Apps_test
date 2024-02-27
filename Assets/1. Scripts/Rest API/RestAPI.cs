@@ -39,17 +39,11 @@ public class RestAPI : MonoBehaviour
         }
     }
 
-    public IEnumerator Post(string url, UserData userData, Action<UnityWebRequest> requestHandler = null)
+    public IEnumerator Post(string url, Action<UnityWebRequest> requestHandler = null)
     {
         WWWForm form = new WWWForm();
 
-        string json = JsonUtility.ToJson(userData);
-
         UnityWebRequest request = UnityWebRequest.Post(url, form);
-
-        byte[] userBytes = System.Text.Encoding.UTF8.GetBytes(json);
-        UploadHandler uploadHandler = new UploadHandlerRaw(userBytes);
-        request.uploadHandler = uploadHandler;
 
         request.SetRequestHeader(RequestHeaders.ContentType, RequestHeaders.ApplicationJson);
 
