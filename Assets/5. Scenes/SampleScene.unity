@@ -627,13 +627,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1734994871}
   - {fileID: 800967590}
   - {fileID: 1209399457}
   - {fileID: 668166885}
   - {fileID: 476896032}
   - {fileID: 1513492015}
   - {fileID: 1879528000}
+  - {fileID: 1734994871}
   m_Father: {fileID: 1818794906}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1863,8 +1863,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a07a9802061e6499a516bf1d8834de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputField: {fileID: 1706602426}
   _restAPI: {fileID: 1585054204}
+  _notificationController: {fileID: 1819990673}
+  _inputField: {fileID: 1706602426}
 --- !u!114 &476896037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2342,8 +2343,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The server, acting as a gateway, timed out waiting for another server to
-    respond.
+  m_text: nice
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 57d987524f7e636428292d8dd31dde94, type: 2}
   m_sharedMaterial: {fileID: -7248426964771606131, guid: 57d987524f7e636428292d8dd31dde94, type: 2}
@@ -2352,8 +2352,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4281824799
+  m_fontColor: {r: 0.121730104, g: 0.4641509, b: 0.2154724, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2370,12 +2370,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 77.55
+  m_fontSize: 255
   m_fontSizeBase: 125
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 125
+  m_fontSizeMin: 24
+  m_fontSizeMax: 255
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -2533,11 +2533,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc7104b4d8f95b4ba9d3dba452c51a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _restAPI: {fileID: 1585054204}
+  _notificationController: {fileID: 0}
   _idInputField: {fileID: 2083134216}
   _nameInputField: {fileID: 1789311523}
   _surnameInputField: {fileID: 1668998919}
   _ageInputField: {fileID: 1247608516}
-  _restAPI: {fileID: 1585054204}
 --- !u!114 &668166889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4718,6 +4719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _restAPI: {fileID: 1585054204}
+  _notificationController: {fileID: 0}
 --- !u!1 &1223437701
 GameObject:
   m_ObjectHideFlags: 0
@@ -5067,7 +5069,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1252267393
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7802,7 +7804,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1819990669}
   - component: {fileID: 1819990672}
-  - component: {fileID: 1819990670}
   - component: {fileID: 1819990674}
   - component: {fileID: 1819990673}
   - component: {fileID: 1819990671}
@@ -7834,25 +7835,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1819990670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819990668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 599220361dfd58346b1ed45bd3e6fdc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _background: {fileID: 1223437701}
-  _container: {fileID: 1779084902}
-  _DOHideWindow: {fileID: 1819990671}
-  _idInputField: {fileID: 0}
-  _nameInputField: {fileID: 0}
-  _surnameInputField: {fileID: 565134874}
-  _ageInputField: {fileID: 0}
 --- !u!114 &1819990671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7887,6 +7869,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1235d2fd64fa4842a409f7fd4f8c50b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _colorRed:
+    serializedVersion: 2
+    rgba: 4278583448
+  _colorGreen:
+    serializedVersion: 2
+    rgba: 4281825056
+  _text: {fileID: 565134874}
+  OnDisplay:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1819990674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7899,6 +7891,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa52ce4c9caeb6468411926005f5dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _background: {fileID: 1223437701}
+  _container: {fileID: 1779084902}
+  _DOHideWindow: {fileID: 1819990671}
+  _duration: 2
+  _notificationController: {fileID: 1819990673}
 --- !u!1 &1879527999
 GameObject:
   m_ObjectHideFlags: 0
@@ -8964,7 +8961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2014461757
 RectTransform:
   m_ObjectHideFlags: 0

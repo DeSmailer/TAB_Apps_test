@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class CreateController : MonoBehaviour
+public class CreateController : RequestController
 {
-    [SerializeField] private RestAPI _restAPI;
-
     public void CreateData()
     {
         StartCoroutine(_restAPI.Post(UrlAPI.API, RequestHandler));

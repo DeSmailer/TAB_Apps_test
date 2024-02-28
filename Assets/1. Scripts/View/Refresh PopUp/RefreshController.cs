@@ -2,13 +2,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class RefreshController : MonoBehaviour
+public class RefreshController : RequestController
 {
     [SerializeField] private InfoButton _infoButtonPrefab;
     [SerializeField] private Transform _container;
     [SerializeField] private TMP_InputField _inputField;
-    [SerializeField] private InfoPopUp _infoPopUp ;
-    [SerializeField] private RestAPI _restAPI;
+
+    [SerializeField] private InfoPopUp _infoPopUp;
+
+    private const string NOT_FOUND = "Not found";
 
     public void TryRefreshData()
     {
@@ -47,19 +49,22 @@ public class RefreshController : MonoBehaviour
 
     private void PrintUsersInfo(UnityWebRequest request)
     {
-
         if (request.result == UnityWebRequest.Result.ConnectionError)
         {
-            Debug.LogError(request.error);
+            _notificationController.DisplayError(request.error);
         }
         else
         {
-            string json = "{\"usersData\":" + request.downloadHandler.text + "}";
-            UsersData usersData = JsonUtility.FromJson<UsersData>(json);
-            foreach (var userData in usersData.usersData)
+            if (request.responseCode == 200)
             {
-                AddElementToContainer(userData);
+                string json = "{\"usersData\":" + request.downloadHandler.text + "}";
+                UsersData usersData = JsonUtility.FromJson<UsersData>(json);
+                foreach (var userData in usersData.usersData)
+                {
+                    AddElementToContainer(userData);
+                }
             }
+            _notificationController.Display(request.responseCode);
         }
     }
 
@@ -67,13 +72,17 @@ public class RefreshController : MonoBehaviour
     {
         if (request.result == UnityWebRequest.Result.ConnectionError)
         {
-            Debug.LogError(request.error);
+            _notificationController.DisplayError(request.error);
         }
         else
         {
             string json = request.downloadHandler.text;
-            UserData userData = JsonUtility.FromJson<UserData>(json);
-            AddElementToContainer(userData);
+            if (request.responseCode == 200)
+            {
+                UserData userData = JsonUtility.FromJson<UserData>(json);
+                AddElementToContainer(userData);
+            }
+            _notificationController.Display(request.responseCode);
         }
     }
 

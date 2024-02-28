@@ -1,17 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class UpdateController : MonoBehaviour
+public class UpdateController : RequestController
 {
     [SerializeField] private TMP_InputField _idInputField;
     [SerializeField] private TMP_InputField _nameInputField;
     [SerializeField] private TMP_InputField _surnameInputField;
     [SerializeField] private TMP_InputField _ageInputField;
-
-    [SerializeField] private RestAPI _restAPI;
 
     public void TryPutData()
     {

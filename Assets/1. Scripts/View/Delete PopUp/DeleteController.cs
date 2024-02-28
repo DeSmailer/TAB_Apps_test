@@ -2,10 +2,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Networking;
 
-public class DeleteController : MonoBehaviour
+public class DeleteController : RequestController
 {
     [SerializeField] private TMP_InputField _inputField;
-    [SerializeField] private RestAPI _restAPI;
 
     public void TryDeleteData()
     {
@@ -26,13 +25,14 @@ public class DeleteController : MonoBehaviour
 
     private void RequestHandler(UnityWebRequest request)
     {
+        //_notificationController.Display(request.responseCode);
         if (request.result == UnityWebRequest.Result.ConnectionError)
         {
-            Debug.LogError(request.error);
+            _notificationController.DisplayError(request.error);
         }
         else
         {
-            Debug.LogError(request.responseCode);
+            _notificationController.Display(request.responseCode);
         }
     }
 }

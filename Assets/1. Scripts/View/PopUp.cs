@@ -1,7 +1,7 @@
 using UnityEngine;
 using DOAnimation;
 
-public class PopUp : MonoBehaviour
+public abstract class PopUp : MonoBehaviour
 {
     [SerializeField] private GameObject _background;
     [SerializeField] private GameObject _container;

@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NotificationPopUp : MonoBehaviour
+public class NotificationPopUp : PopUp
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float _duration = 2f;
+    [SerializeField] private NotificationController _notificationController;
+
+    private void Start()
     {
-        
+        _notificationController.OnDisplay.AddListener(Show);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Show()
     {
-        
+        Open();
+        StartCoroutine(WaitBeforeClose());
+    }
+
+    private IEnumerator WaitBeforeClose()
+    {
+        yield return new WaitForSeconds(_duration);
+        Close();
     }
 }
