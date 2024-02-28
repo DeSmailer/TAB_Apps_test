@@ -473,10 +473,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1513492014}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1513492017}
+        m_TargetAssemblyTypeName: PopUp, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -838,10 +838,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 476896031}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 476896035}
+        m_TargetAssemblyTypeName: PopUp, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1462,7 +1462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &390644414
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1799,13 +1799,14 @@ GameObject:
   - component: {fileID: 476896034}
   - component: {fileID: 476896035}
   - component: {fileID: 476896036}
+  - component: {fileID: 476896037}
   m_Layer: 5
   m_Name: Delete PopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &476896032
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1847,6 +1848,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a986148cf901f4b933cc65b14ed9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _background: {fileID: 390644413}
+  _container: {fileID: 2002129232}
+  _DOHideWindow: {fileID: 476896037}
 --- !u!114 &476896036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1861,6 +1865,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputField: {fileID: 1706602426}
   _restAPI: {fileID: 1585054204}
+--- !u!114 &476896037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476896031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc22c00c8465aa48a631d19c48d00f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
+  target: {fileID: 2002129232}
 --- !u!1 &486167634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,6 +1891,7 @@ GameObject:
   - component: {fileID: 486167638}
   - component: {fileID: 486167637}
   - component: {fileID: 486167636}
+  - component: {fileID: 486167639}
   m_Layer: 5
   m_Name: Refresh Button
   m_TagString: Untagged
@@ -1944,10 +1963,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1513492014}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1513492017}
+        m_TargetAssemblyTypeName: PopUp, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 486167639}
+        m_TargetAssemblyTypeName: DOAnimation.DOButton, Assembly-CSharp
+        m_MethodName: FakeClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1994,6 +2025,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486167634}
   m_CullTransparentMesh: 1
+--- !u!114 &486167639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486167634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94de48d86d9d27c41bb66770761e3d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
 --- !u!1 &505275713
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,13 +2349,14 @@ GameObject:
   - component: {fileID: 668166887}
   - component: {fileID: 668166889}
   - component: {fileID: 668166888}
+  - component: {fileID: 668166890}
   m_Layer: 5
   m_Name: Update PopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &668166885
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2370,6 +2415,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd32e24632a2b546a792578dd333d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _background: {fileID: 957326861}
+  _container: {fileID: 2125693954}
+  _DOHideWindow: {fileID: 668166890}
+--- !u!114 &668166890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668166884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc22c00c8465aa48a631d19c48d00f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
+  target: {fileID: 2125693954}
 --- !u!1 &758694659
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,6 +2444,7 @@ GameObject:
   - component: {fileID: 758694663}
   - component: {fileID: 758694662}
   - component: {fileID: 758694661}
+  - component: {fileID: 758694664}
   m_Layer: 5
   m_Name: Ok Button
   m_TagString: Untagged
@@ -2465,6 +2528,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 758694664}
+        m_TargetAssemblyTypeName: DOAnimation.DOButton, Assembly-CSharp
+        m_MethodName: FakeClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &758694662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2503,6 +2578,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758694659}
   m_CullTransparentMesh: 1
+--- !u!114 &758694664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758694659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94de48d86d9d27c41bb66770761e3d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
 --- !u!1 &771660008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,10 +2673,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 668166884}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 668166889}
+        m_TargetAssemblyTypeName: PopUp, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2969,6 +3057,7 @@ GameObject:
   - component: {fileID: 788950891}
   - component: {fileID: 788950890}
   - component: {fileID: 788950889}
+  - component: {fileID: 788950892}
   m_Layer: 5
   m_Name: Update Button
   m_TagString: Untagged
@@ -3040,10 +3129,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 668166884}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 668166889}
+        m_TargetAssemblyTypeName: PopUp, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 788950892}
+        m_TargetAssemblyTypeName: DOAnimation.DOButton, Assembly-CSharp
+        m_MethodName: FakeClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3090,6 +3191,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788950887}
   m_CullTransparentMesh: 1
+--- !u!114 &788950892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788950887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94de48d86d9d27c41bb66770761e3d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
 --- !u!1 &800967589
 GameObject:
   m_ObjectHideFlags: 0
@@ -3744,7 +3858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &957326862
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3925,7 +4039,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1060424629
@@ -4018,10 +4132,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1879527999}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1879528005}
+        m_TargetAssemblyTypeName: PopUp, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4661,13 +4775,14 @@ GameObject:
   - component: {fileID: 1252267393}
   - component: {fileID: 1252267395}
   - component: {fileID: 1252267394}
+  - component: {fileID: 1252267397}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1252267393
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4730,6 +4845,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252267392}
   m_CullTransparentMesh: 1
+--- !u!114 &1252267397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252267392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2d85797cecf024f9e9a2a48707e42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
+  target: {fileID: 1252267392}
+  showOnEnable: 1
 --- !u!1 &1312371177
 GameObject:
   m_ObjectHideFlags: 0
@@ -5062,6 +5192,7 @@ GameObject:
   - component: {fileID: 1361022994}
   - component: {fileID: 1361022993}
   - component: {fileID: 1361022992}
+  - component: {fileID: 1361022995}
   m_Layer: 5
   m_Name: Create Button
   m_TagString: Untagged
@@ -5145,6 +5276,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1361022995}
+        m_TargetAssemblyTypeName: DOAnimation.DOButton, Assembly-CSharp
+        m_MethodName: FakeClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1361022993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5183,6 +5326,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361022990}
   m_CullTransparentMesh: 1
+--- !u!114 &1361022995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361022990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94de48d86d9d27c41bb66770761e3d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
 --- !u!1 &1392957810
 GameObject:
   m_ObjectHideFlags: 0
@@ -5200,7 +5356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1392957811
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5618,13 +5774,14 @@ GameObject:
   - component: {fileID: 1468292708}
   - component: {fileID: 1468292710}
   - component: {fileID: 1468292709}
+  - component: {fileID: 1468292711}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1468292708
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5686,6 +5843,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468292707}
   m_CullTransparentMesh: 1
+--- !u!114 &1468292711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468292707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2d85797cecf024f9e9a2a48707e42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
+  target: {fileID: 1468292707}
+  showOnEnable: 1
 --- !u!1 &1513492014
 GameObject:
   m_ObjectHideFlags: 0
@@ -5698,13 +5870,14 @@ GameObject:
   - component: {fileID: 1513492019}
   - component: {fileID: 1513492017}
   - component: {fileID: 1513492016}
+  - component: {fileID: 1513492020}
   m_Layer: 5
   m_Name: Refresh PopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1513492015
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5755,6 +5928,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defb3d83a8261ca4aa264bc95b92a3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _background: {fileID: 1392957810}
+  _container: {fileID: 1468292707}
+  _DOHideWindow: {fileID: 1513492020}
 --- !u!222 &1513492019
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5763,6 +5939,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513492014}
   m_CullTransparentMesh: 1
+--- !u!114 &1513492020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513492014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc22c00c8465aa48a631d19c48d00f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
+  target: {fileID: 1468292707}
 --- !u!1 &1524589581
 GameObject:
   m_ObjectHideFlags: 0
@@ -6005,6 +6195,7 @@ GameObject:
   - component: {fileID: 1616390193}
   - component: {fileID: 1616390192}
   - component: {fileID: 1616390191}
+  - component: {fileID: 1616390194}
   m_Layer: 5
   m_Name: Delete Button
   m_TagString: Untagged
@@ -6076,10 +6267,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 476896031}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 476896035}
+        m_TargetAssemblyTypeName: PopUp, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1616390194}
+        m_TargetAssemblyTypeName: DOAnimation.DOButton, Assembly-CSharp
+        m_MethodName: FakeClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6126,6 +6329,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616390189}
   m_CullTransparentMesh: 1
+--- !u!114 &1616390194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616390189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94de48d86d9d27c41bb66770761e3d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
 --- !u!1 &1630689256
 GameObject:
   m_ObjectHideFlags: 0
@@ -7208,13 +7424,14 @@ GameObject:
   - component: {fileID: 1879528000}
   - component: {fileID: 1879528004}
   - component: {fileID: 1879528005}
+  - component: {fileID: 1879528006}
   m_Layer: 5
   m_Name: InfoPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1879528000
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7256,10 +7473,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599220361dfd58346b1ed45bd3e6fdc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _background: {fileID: 2014461756}
+  _container: {fileID: 1252267392}
+  _DOHideWindow: {fileID: 1879528006}
   _idInputField: {fileID: 872082325}
   _nameInputField: {fileID: 1127049068}
   _surnameInputField: {fileID: 462082070}
   _ageInputField: {fileID: 328685363}
+--- !u!114 &1879528006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879527999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc22c00c8465aa48a631d19c48d00f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
+  target: {fileID: 1252267392}
 --- !u!1 &1900253692
 GameObject:
   m_ObjectHideFlags: 0
@@ -7613,7 +7847,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1921529521
@@ -8009,13 +8243,14 @@ GameObject:
   - component: {fileID: 2002129233}
   - component: {fileID: 2002129235}
   - component: {fileID: 2002129234}
+  - component: {fileID: 2002129236}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2002129233
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8077,6 +8312,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002129232}
   m_CullTransparentMesh: 1
+--- !u!114 &2002129236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002129232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2d85797cecf024f9e9a2a48707e42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
+  target: {fileID: 2002129232}
+  showOnEnable: 1
 --- !u!1 &2004507210
 GameObject:
   m_ObjectHideFlags: 0
@@ -8223,12 +8473,12 @@ GameObject:
   - component: {fileID: 2014461759}
   - component: {fileID: 2014461758}
   m_Layer: 5
-  m_Name: Background (1)
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2014461757
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9042,13 +9292,14 @@ GameObject:
   - component: {fileID: 2125693955}
   - component: {fileID: 2125693957}
   - component: {fileID: 2125693956}
+  - component: {fileID: 2125693958}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2125693955
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9116,6 +9367,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125693954}
   m_CullTransparentMesh: 1
+--- !u!114 &2125693958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125693954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2d85797cecf024f9e9a2a48707e42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
+  target: {fileID: 2125693954}
+  showOnEnable: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class InfoPopUp : MonoBehaviour
+public class InfoPopUp : PopUp
 {
     [SerializeField] private TMP_Text _idInputField;
     [SerializeField] private TMP_Text _nameInputField;
@@ -10,7 +10,7 @@ public class InfoPopUp : MonoBehaviour
 
     public void Display(InfoButton infoButton)
     {
-        gameObject.SetActive(true);
+        Open();
 
         UserData userData = infoButton.UserData;
         _idInputField.text = "Id: " + userData.id.ToString();

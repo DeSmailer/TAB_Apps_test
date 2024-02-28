@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1562664834588826004}
   - component: {fileID: 2087320333580128202}
   - component: {fileID: 3485491476970941928}
+  - component: {fileID: 4887074759895628122}
   m_Layer: 5
   m_Name: Info Button (1)
   m_TagString: Untagged
@@ -122,7 +123,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5915570496992358387}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4887074759895628122}
+        m_TargetAssemblyTypeName: DOAnimation.DOButton, Assembly-CSharp
+        m_MethodName: FakeClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2087320333580128202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +169,19 @@ MonoBehaviour:
   _infoButton: {fileID: 2087320333580128202}
   _button: {fileID: 1562664834588826004}
   _infoPopUp: {fileID: 0}
+--- !u!114 &4887074759895628122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009254305187064729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94de48d86d9d27c41bb66770761e3d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
 --- !u!1 &5765045004645748007
 GameObject:
   m_ObjectHideFlags: 0
