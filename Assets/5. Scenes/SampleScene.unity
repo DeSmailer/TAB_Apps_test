@@ -628,12 +628,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 800967590}
+  - {fileID: 1734994871}
   - {fileID: 1209399457}
   - {fileID: 668166885}
   - {fileID: 476896032}
   - {fileID: 1513492015}
   - {fileID: 1879528000}
-  - {fileID: 1734994871}
+  - {fileID: 1819990669}
   m_Father: {fileID: 1818794906}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2534,7 +2535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _restAPI: {fileID: 1585054204}
-  _notificationController: {fileID: 0}
+  _notificationController: {fileID: 1819990673}
   _idInputField: {fileID: 2083134216}
   _nameInputField: {fileID: 1789311523}
   _surnameInputField: {fileID: 1668998919}
@@ -4719,7 +4720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _restAPI: {fileID: 1585054204}
-  _notificationController: {fileID: 0}
+  _notificationController: {fileID: 1819990673}
 --- !u!1 &1223437701
 GameObject:
   m_ObjectHideFlags: 0
@@ -4737,7 +4738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1223437702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6198,11 +6199,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ed367ce59add14d8ebd399b3bdd711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _restAPI: {fileID: 1585054204}
+  _notificationController: {fileID: 1819990673}
   _infoButtonPrefab: {fileID: 2087320333580128202, guid: f38c5e8d9cdb20a44acee22e6b5eb501, type: 3}
   _container: {fileID: 76818690}
   _inputField: {fileID: 787445742}
   _infoPopUp: {fileID: 1879528005}
-  _restAPI: {fileID: 1585054204}
 --- !u!114 &1513492017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7289,7 +7291,6 @@ RectTransform:
   m_Children:
   - {fileID: 894619967}
   - {fileID: 1932437144}
-  - {fileID: 1819990669}
   m_Father: {fileID: 110358447}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7441,7 +7442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1779084903
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7807,6 +7808,7 @@ GameObject:
   - component: {fileID: 1819990674}
   - component: {fileID: 1819990673}
   - component: {fileID: 1819990671}
+  - component: {fileID: 1819990675}
   m_Layer: 5
   m_Name: Notification PopUp
   m_TagString: Untagged
@@ -7828,12 +7830,12 @@ RectTransform:
   m_Children:
   - {fileID: 1223437704}
   - {fileID: 1779084903}
-  m_Father: {fileID: 1734994871}
+  m_Father: {fileID: 110358447}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -739.9142}
+  m_SizeDelta: {x: 0, y: -1504.6033}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1819990671
 MonoBehaviour:
@@ -7896,6 +7898,20 @@ MonoBehaviour:
   _DOHideWindow: {fileID: 1819990671}
   _duration: 2
   _notificationController: {fileID: 1819990673}
+--- !u!114 &1819990675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819990668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc85384fdcf0ba41875a1ff4f705201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceRect: {fileID: 1734994871}
+  targetRect: {fileID: 1819990669}
 --- !u!1 &1879527999
 GameObject:
   m_ObjectHideFlags: 0

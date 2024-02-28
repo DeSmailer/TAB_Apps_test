@@ -38,6 +38,7 @@ public class UpdateController : RequestController
         else
         {
             id = -1;
+            _notificationController.DisplayError("Incorrect Id");
         }
 
         str = _nameInputField.text;
@@ -53,13 +54,14 @@ public class UpdateController : RequestController
         }
 
         str = _ageInputField.text;
-        if (TextValidator.StringIsNotNullOrEmpty(str) && TextValidator.StringIsNumber(str, out age) && id > 0)
+        if (TextValidator.StringIsNotNullOrEmpty(str) && TextValidator.StringIsNumber(str, out age) && age >= 0)
         {
             Debug.Log("ok");
         }
         else
         {
             id = -1;
+            _notificationController.DisplayError("Incorrect Age");
         }
 
         UserData userData = new UserData()
@@ -76,12 +78,12 @@ public class UpdateController : RequestController
     {
         if (request.result == UnityWebRequest.Result.ConnectionError)
         {
-            Debug.LogError(request.error);
+            _notificationController.DisplayError(request.error);
         }
         else
         {
-            UserData userDataFromServer = JsonUtility.FromJson<UserData>(request.downloadHandler.text);
-            Debug.Log(userDataFromServer.name);
+            //UserData userDataFromServer = JsonUtility.FromJson<UserData>(request.downloadHandler.text);
+            _notificationController.Display(request.responseCode);
         }
     }
 }

@@ -15,7 +15,7 @@ public class NotificationController : MonoBehaviour
     public void DisplayError(string text)
     {
         _text.color = _colorRed;
-        _text.text = "Error";
+        _text.text = text;
 
         OnDisplay?.Invoke();
     }

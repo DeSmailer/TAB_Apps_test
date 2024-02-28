@@ -15,6 +15,10 @@ public class DeleteController : RequestController
         {
             DeleteData(id);
         }
+        else
+        {
+            _notificationController.DisplayError("Incorrect Id");
+        }
     }
 
     private void DeleteData(int id)
@@ -25,7 +29,6 @@ public class DeleteController : RequestController
 
     private void RequestHandler(UnityWebRequest request)
     {
-        //_notificationController.Display(request.responseCode);
         if (request.result == UnityWebRequest.Result.ConnectionError)
         {
             _notificationController.DisplayError(request.error);

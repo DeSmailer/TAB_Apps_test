@@ -12,12 +12,11 @@ public class CreateController : RequestController
     {
         if (request.result == UnityWebRequest.Result.ConnectionError)
         {
-            Debug.LogError(request.error);
+            _notificationController.DisplayError(request.error);
         }
         else
         {
-            UserData userDataFromServer = JsonUtility.FromJson<UserData>(request.downloadHandler.text);
-            Debug.Log(userDataFromServer);
+            _notificationController.Display(request.responseCode);
         }
     }
 }
