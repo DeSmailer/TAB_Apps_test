@@ -1,15 +1,12 @@
 using DG.Tweening;
 using System;
 using UnityEngine;
-//using UnityEngine.UI;
 
 namespace DOAnimation
 {
     public class DOShowWindow : DOWindow
     {
         [SerializeField] private bool showOnEnable = true;
-        //[SerializeField] private ScrollRect[] scrollRect;
-
 
         private void OnEnable()
         {
@@ -61,39 +58,15 @@ namespace DOAnimation
             go.transform.localScale = Vector3.zero;
 
             Sequence sequence = DOTween.Sequence();
-            sequence.Append(go.transform.DOScale(size * 1.05f, duration * 0.8f)/*.OnUpdate(() => { ScrollToTop(); })*/);
+            sequence.Append(go.transform.DOScale(size * 1.05f, duration * 0.8f));
             sequence.PrependInterval(0.1f);
             sequence.Append(go.transform.DOScale(size, duration * 0.2f)
             .OnComplete(() =>
             {
-                //ScrollToTop();
                 action?.Invoke();
                 onComplete?.Invoke();
             }));
-            //.OnUpdate(() => { ScrollToTop(); });
             return GetDOAnimation();
         }
-
-        //private void ScrollToTop()
-        //{
-        //    foreach (var item in scrollRect)
-        //    {
-        //        if (item != null)
-        //        {
-        //            item.verticalNormalizedPosition = 1;
-        //        }
-        //    }
-        //}
-
-        //private void StopScroll(bool stop)
-        //{
-        //    foreach (var item in scrollRect)
-        //    {
-        //        if (item != null)
-        //        {
-        //            item.vertical = !stop;
-        //        }
-        //    }
-        //}
     }
 }

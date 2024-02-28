@@ -13,7 +13,7 @@ namespace DOAnimation
             {
                 target = gameObject;
             }
-            startScale = /*Vector3.one;*/ target.transform.localScale;
+            startScale = target.transform.localScale;
         }
     }
 }

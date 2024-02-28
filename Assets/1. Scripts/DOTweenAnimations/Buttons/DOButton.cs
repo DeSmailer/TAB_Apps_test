@@ -49,48 +49,5 @@ namespace DOAnimation
             }));
             return GetDOAnimation();
         }
-
-        //public DOAnimation Rotate(Vector3 angle, float duration, Action action = null)
-        //{
-        //    if (IsLocked == false)
-        //    {
-        //        IsLocked = true;
-        //        return RotateAnimation(angle, duration, () => { IsLocked = false; });
-        //    }
-        //    return null;
-        //}
-
-        //public DOAnimation Rotate(float angle, float duration, Action action = null)
-        //{
-        //    if (IsLocked == false)
-        //    {
-        //        IsLocked = true;
-        //        return RotateAnimation(angle, duration, () => { IsLocked = false; });
-        //    }
-        //    return null;
-        //}
-
-        //private void RotateVoid(Vector3 angle, float duration, Action action = null)
-        //{
-        //    Rotate(angle, duration, action);
-        //}
-
-        //private DOAnimation RotateAnimation(float angle, float duration, Action action = null)
-        //{
-        //    return Rotate(new Vector3(0, 0, angle), duration, action);
-        //}
-
-        //private DOAnimation RotateAnimation(Vector3 angle, float duration, Action action = null)
-        //{
-
-        //    transform.DORotate(angle, duration, RotateMode.LocalAxisAdd).OnComplete(() =>
-        //    {
-        //        action?.Invoke();
-        //        onComplete?.Invoke();
-        //    });
-
-        //    return GetDOAnimation();
-        //}
-
     }
 }

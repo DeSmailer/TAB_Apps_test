@@ -52,7 +52,6 @@ namespace DOAnimation
                 action?.Invoke();
                 onComplete?.Invoke();
             }));
-            //SoundManager.Instance.PlayHideWindow();
             return GetDOAnimation();
         }
     }
